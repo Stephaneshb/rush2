@@ -1,21 +1,19 @@
 function searchProducts() {
   const searchTerm = document.getElementById('search-input').value.toLowerCase();
-  const productCards = document.querySelectorAll('.product-card'); // Sélectionne tous les produits
+  const productCards = document.querySelectorAll('.product-card'); 
 
   productCards.forEach(product => {
       const productName = product.querySelector('h4').textContent.toLowerCase();
       const productCategory = product.querySelector('h5').textContent.toLowerCase();
-
-      // Vérifie si le terme recherché est dans le nom ou la catégorie
+    
       if (productName.includes(searchTerm) || productCategory.includes(searchTerm)) {
-          product.style.display = 'block'; // Affiche le produit s'il correspond
+          product.style.display = 'block'; 
       } else {
-          product.style.display = 'none'; // Cache le produit s'il ne correspond pas
+          product.style.display = 'none';
       }
   });
 }
 
-// Écouteur d'événements pour la barre de recherche
 document.getElementById('search-input').addEventListener('input', searchProducts);
 
 
@@ -26,14 +24,14 @@ const priceMaxOutput = document.getElementById('price-max');
 
 rangeMin.addEventListener('input', function() {
     if (parseInt(rangeMin.value) > parseInt(rangeMax.value) - 10) {
-        rangeMin.value = rangeMax.value - 10; // Garde un écart minimum
+        rangeMin.value = rangeMax.value - 10; 
     }
     priceMinOutput.textContent = rangeMin.value;
 });
 
 rangeMax.addEventListener('input', function() {
     if (parseInt(rangeMax.value) < parseInt(rangeMin.value) + 10) {
-        rangeMax.value = rangeMin.value + 10; // Garde un écart minimum
+        rangeMax.value = rangeMin.value + 10; 
     }
     priceMaxOutput.textContent = rangeMax.value;
 });
